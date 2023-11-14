@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexCntroller;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,14 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexCntroller::class,'index'])->name('index');
 
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/cont/{names}', function ($names) {
+Route::get('/about', [IndexCntroller::class,'about'])->name('about');
+
+
+Route::get('/cont/{names}', [IndexCntroller::class, 'contact'])->name('contact');
+// Route::get('/cont/{names}', function ($names) {
    
-    return view('contact',['name'=>$names,'age'=>10]);
-})->name('contact');
+//     return view('contact' ,['name'=>$names,'age'=>10]);
+// })->name('contact');
+
+
+//route prefix
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return 'Admin homwe';
+    });
+
+    Route::get('/settings', function () {
+        return 'Admin settings';
+    });
+});

@@ -1,5 +1,9 @@
+@extends('layout')
+@section('content')
 <h1>
-    This is our about page
-    <p><a href="/">go to home</a></p>
-    {{-- <p><a href="{{route('contact')}}">go to ContACT</a></p> --}}
+    bout page here 
+    {{-- <p>My name is {{$name}}</p>
+    <p>Age:: {{$age}}</p> --}}
+
 </h1>
+@endsection

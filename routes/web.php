@@ -37,3 +37,14 @@ Route::prefix('admin')->group(function () {
         return 'Admin settings';
     });
 });
+
+// register
+Route::get('/register', [IndexCntroller::class,'register'])->name('register');
+
+Route::post('/register', [IndexCntroller::class,'reg'])->name('reg');
+
+
+// login
+Route::get('/login', [IndexCntroller::class, 'login'])->name('login');
+
+Route::post('/login', [IndexCntroller::class,'getLogin'])->name('getLogin');

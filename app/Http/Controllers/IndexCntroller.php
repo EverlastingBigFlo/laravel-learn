@@ -7,43 +7,53 @@ use Illuminate\Http\Request;
 
 class IndexCntroller extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('welcome');
     }
-    public function about(){
-            return view('about');
-        }
+    public function about()
+    {
+        return view('about');
+    }
 
-    public  function names($names) {
-   
-    return view('contact' ,['name'=>$names,'age'=>10]);
-}
-public function register(){
-return view('register');
-}
+    public  function names($names)
+    {
 
-public function reg(Request $request){
-    $request->validate([
-        'name'=>'required',
-        'email'=>'required|email|unique:users',
-        'password'=>'required'
-    ]);
+        return view('contact', ['name' => $names, 'age' => 10]);
+    }
+    public function register()
+    {
+        return view('register');
+    }
 
-   User::create($request->all());
-   return redirect()->back()->with('message','Registration successfull');
+    public function reg(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required'
+        ]);
+
+        //to create account to the database
+        User::create($request->all());
+
+        //    to route to a page that will flash after successful login
+        return redirect()->back()->with('message', 'Registration successfull');
     }
 
 
 
 
-public function login(){
-    return view('login');
+    public function login()
+    {
+        return view('login');
     }
 
-        
 
-    public function getLogin(Request $request){
-        $request -> validate([
+
+    public function getLogin(Request $request)
+    {
+        $request->validate([
             'email' => 'required|email',
             // 'password' => 'min:6|required',
 
@@ -53,6 +63,4 @@ public function login(){
         ]);
         return "WELCOME";
     }
-    }
-
-
+}

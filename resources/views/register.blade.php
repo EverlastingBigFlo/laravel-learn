@@ -1,9 +1,12 @@
 @extends('layout')
 @section('content')
 <form action="{{route('reg')}}" method="POST">
+
+    {{-- where to route to when the account is being register to the database --}}
     @if (session()->has('message'))
         <h1>{{session()->get('message')}}</h1>
     @endif
+    
     @csrf
     <input type="text" name="name" placeholder="enter your name" value="{{old('name')}}">
     <small style="color: red">

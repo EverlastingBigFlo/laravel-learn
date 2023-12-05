@@ -8,12 +8,18 @@
     @endif
     
     @csrf
+
+     {{-- name input --}}
+
     <input type="text" name="name" placeholder="enter your name" value="{{old('name')}}">
     <small style="color: red">
         @error('name')
             {{$message}}
         @enderror
     </small><br>
+
+     {{-- email input --}}
+
     <input type="text" name="email" placeholder="email" value="{{old('email')}}">
     <small style="color: red">
 
@@ -22,22 +28,27 @@
         @enderror
     </small>
     <br>
-    <input type="number" name="age" placeholder="age" value="{{old('age')}}">
-    <small style="color: red">
+     {{-- Age input --}}
+     <input type="number" name="age" placeholder="age" value="{{old('age')}}">
+     <small style="color: red">
+         @error('age')
+             {{$message}}
+         @enderror
+     </small>
+     <br>
+ 
 
-        @error('age')
-            {{$message}}
-        @enderror
-    </small>
-    <br>
-    <input type="text" name="country" placeholder="country" value="{{old('country')}}">
-    <small style="color: red">
+     {{-- Country input --}}
 
-        @error('country')
-            {{$message}}
-        @enderror
-    </small>
-    <br>
+     <input type="text" name="country" placeholder="country" value="{{old('country')}}">
+     <small style="color: red">
+         @error('country')
+             {{$message}}
+         @enderror
+     </small>
+     <br>
+     {{-- password input --}}
+
     <input type="password" name="password" placeholder="Password" value="{{old('password')}}">
     <small style="color: red">
         @error('password')

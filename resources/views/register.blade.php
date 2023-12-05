@@ -22,6 +22,22 @@
         @enderror
     </small>
     <br>
+    <input type="number" name="age" placeholder="age" value="{{old('age')}}">
+    <small style="color: red">
+
+        @error('age')
+            {{$message}}
+        @enderror
+    </small>
+    <br>
+    <input type="text" name="country" placeholder="country" value="{{old('country')}}">
+    <small style="color: red">
+
+        @error('country')
+            {{$message}}
+        @enderror
+    </small>
+    <br>
     <input type="password" name="password" placeholder="Password" value="{{old('password')}}">
     <small style="color: red">
         @error('password')

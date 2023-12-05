@@ -55,7 +55,10 @@ class IndexCntroller extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            // 'password' => 'min:6|required',
+
+            'age' => 'required|age|olderThan:17',
+
+            'country' => 'required',
 
             'password' => 'required|confirmed|min:6',
 
